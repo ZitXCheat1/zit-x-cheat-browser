@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.browser {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 1200px;
+    margin: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.header button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 3px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header button:hover {
+    background-color: #0056b3;
+}
+
+.header input {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 3px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+#browserFrame {
+    flex: 1;
+    border: none;
+    width: 100%;
+}
+
+#loadingIndicator {
+    display: none;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#bookmarks {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    background-color: #fff;
+    border-left: 1px solid #ddd;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    overflow-y: auto;
+    padding: 10px;
+    display: none;
+}
+
+#bookmarks h2 {
+    margin-top: 0;
+}
+
+#bookmarkList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#bookmarkList li {
+    margin: 5px 0;
+}
+
+#bookmarkList a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+#bookmarkList a:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
+}
