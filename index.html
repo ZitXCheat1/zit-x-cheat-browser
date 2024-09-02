@@ -3,28 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zit X Cheat Browser</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Zit-X Cheat Browser</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        #controls {
+            display: flex;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+        }
+
+        #controls button, #controls input {
+            margin-right: 5px;
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        #url {
+            flex: 1;
+        }
+
+        #bookmarkIcon.blue {
+            color: blue;
+        }
+
+        #browserFrame {
+            flex: 1;
+            width: 100%;
+            border: none;
+        }
+
+        #loadingIndicator {
+            display: none;
+            text-align: center;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+
+        #bookmarks {
+            position: fixed;
+            top: 50px;
+            right: 10px;
+            background: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        #bookmarkModal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            display: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #closeBookmarkPanelButton {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <div class="browser">
-        <header class="header">
-            <button id="backButton"><i class="fas fa-arrow-left"></i></button>
-            <button id="forwardButton"><i class="fas fa-arrow-right"></i></button>
-            <button id="homeButton"><i class="fas fa-home"></i></button>
-            <button id="refreshButton"><i class="fas fa-sync"></i></button>
-            <input type="text" id="url" placeholder="Enter URL and press Enter">
-            <button id="goButton">Go</button>
-            <button id="bookmarkButton"><i class="fas fa-bookmark"></i></button>
-        </header>
-        <div id="loadingIndicator">Loading...</div>
-        <iframe id="browserFrame" src="https://www.example.com" title="Browser Frame"></iframe>
-        <div id="bookmarks" class="hidden">
-            <h2>Bookmarks</h2>
-            <ul id="bookmarkList"></ul>
-        </div>
+    <div id="controls">
+        <button id="backButton" disabled>←</button>
+        <button id="forwardButton" disabled>→</button>
+        <button id="refreshButton">⟳</button>
+        <input type="text" id="url" placeholder="Enter URL here">
+        <button id="goButton">Go</button>
+        <button id="homeButton">Home</button>
+        <button id="bookmarkButton" disabled><i id="bookmarkIcon" class="fa fa-star"></i> Bookmark</button>
+        <button id="discordButton">Discord</button>
     </div>
+    <div id="loadingIndicator">Loading...</div>
+    <iframe id="browserFrame" src=""></iframe>
+
+    <div id="bookmarks">
+        <button id="closeBookmarkPanelButton">Close</button>
+        <ul id="bookmarkList"></ul>
+    </div>
+
+    <div id="bookmarkModal">
+        <h3 id="modalTitle">Add Bookmark</h3>
+        <input type="text" id="bookmarkName" placeholder="Enter Bookmark Name">
+        <button id="saveBookmarkButton">Save</button>
+        <button id="removeBookmarkButton" class="hidden">Remove</button>
+        <button id="closeModalButton">Close</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
